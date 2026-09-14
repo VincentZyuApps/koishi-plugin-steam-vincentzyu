@@ -1,0 +1,158 @@
+.status-card {
+  position: relative;
+  margin-top: 14px;
+  overflow: hidden;
+  border: 1px solid #456d80;
+  background: #172836;
+}
+
+.status-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .72;
+}
+
+.status-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 17, 24, .9), rgba(10, 23, 32, .78));
+}
+
+.status-content {
+  position: relative;
+  z-index: 1;
+  padding: 28px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .75);
+}
+
+.status-identity {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.status-avatar {
+  position: relative;
+  flex: 0 0 164px;
+  width: 164px;
+  height: 164px;
+}
+
+.status-avatar-image,
+.status-avatar-placeholder {
+  width: 164px;
+  height: 164px;
+  border: 2px solid #8fcff1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-avatar-placeholder {
+  display: grid;
+  place-items: center;
+  color: #a9d6ed;
+  background: #233e50;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.status-frame {
+  position: absolute;
+  z-index: 2;
+  top: -18px;
+  left: -18px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.status-name {
+  min-width: 0;
+  color: #fff;
+  font-size: 35px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.status-state {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 12px;
+  color: #e8f5fb;
+  background: #28749a;
+  font-size: 19px;
+}
+
+.status-state.offline {
+  background: #626b70;
+}
+
+.status-state.playing {
+  color: #e5ffd4;
+  background: #598b2b;
+}
+
+.status-game {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 34px;
+  padding: 16px;
+  border-top: 1px solid rgba(143, 207, 241, .45);
+  border-bottom: 1px solid rgba(143, 207, 241, .45);
+  background: rgba(5, 14, 20, .55);
+}
+
+.status-game-image,
+.status-game .image-placeholder {
+  width: 164px;
+  height: 77px;
+  object-fit: cover;
+}
+
+.status-game span {
+  display: block;
+  color: #acd7a2;
+  font-size: 17px;
+}
+
+.status-game b {
+  display: block;
+  margin-top: 5px;
+  color: #fff;
+  font-size: 25px;
+  overflow-wrap: anywhere;
+}
+
+.status-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 28px;
+  background: rgba(107, 150, 173, .42);
+}
+
+.status-details > div {
+  min-width: 0;
+  padding: 14px 16px;
+  background: rgba(9, 22, 30, .7);
+}
+
+.status-details span {
+  display: block;
+  color: #a9c5d2;
+  font-size: 15px;
+}
+
+.status-details b {
+  display: block;
+  margin-top: 4px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}

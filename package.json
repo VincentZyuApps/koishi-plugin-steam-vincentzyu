@@ -1,22 +1,47 @@
 {
   "name": "koishi-plugin-steam-vincentzyu",
-  "description": "steam插件捏",
+  "description": "Steam 公开库存、游玩时长、年度回顾与商店排行榜插件。",
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "homepage": "https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu/issues"
+  },
   "files": [
     "lib",
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
     "plugin"
   ],
-  "devDependencies": {},
+  "scripts": {
+    "copy:render-assets": "node scripts/copy-render-assets.mjs",
+    "screenshots:readme": "node -r esbuild-register scripts/images/capture-readme-screenshots.cjs",
+    "yakumo:after:build": "yarn copy:render-assets"
+  },
   "peerDependencies": {
-    "koishi": "^4.18.7"
+    "koishi": "^4.18.7",
+    "koishi-plugin-puppeteer": "^3.9.0"
+  },
+  "dependencies": {
+    "@chinese-fonts/lxgwwenkai": "^3.0.0",
+    "@koishijs/plugin-proxy-agent": "^0.3.3"
+  },
+  "koishi": {
+    "service": {
+      "required": [
+        "database",
+        "puppeteer",
+        "http"
+      ]
+    }
   }
 }

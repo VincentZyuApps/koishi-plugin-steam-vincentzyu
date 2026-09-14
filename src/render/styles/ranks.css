@@ -1,0 +1,43 @@
+.rank {
+  display: grid;
+  grid-template-columns: 46px 104px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 18px;
+  border-top: 1px solid #3d5867;
+  background: rgba(29, 54, 67, .12);
+}
+
+.rank-number {
+  color: #77c9f5;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rank img,
+.rank .image-placeholder {
+  width: 104px;
+  height: 49px;
+  border: 1px solid #5f91a8;
+  object-fit: cover;
+}
+
+.rank-name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.rank-desc {
+  margin-top: 3px;
+  color: #a6bfcb;
+  font-size: 15px;
+}
+
+.rank-meta {
+  color: #9ee0ff;
+  font-size: 16px;
+  text-align: right;
+}

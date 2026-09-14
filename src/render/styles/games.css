@@ -1,0 +1,65 @@
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.metric {
+  padding: 12px;
+  border: 1px solid #456c80;
+  background: rgba(21, 52, 67, .8);
+}
+
+.metric b {
+  display: block;
+  color: #fff;
+  font-size: 27px;
+}
+
+.metric span {
+  color: #a8c6d5;
+  font-size: 16px;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px;
+}
+
+.game {
+  min-width: 0;
+  border: 1px solid #405d6d;
+  overflow: hidden;
+  background: #162833;
+}
+
+.game img,
+.game .image-placeholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 460 / 215;
+  border-bottom: 1px solid #5f91a8;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 10px;
+}
+
+.game-name {
+  min-height: 42px;
+  color: #f3f8fb;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.game-time {
+  margin-top: 7px;
+  color: #85c8ed;
+  font-size: 15px;
+}

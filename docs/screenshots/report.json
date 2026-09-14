@@ -1,0 +1,92 @@
+{
+  "uid": "onebot:1830540513",
+  "year": 2025,
+  "generatedAt": "2026-09-14T14:23:47.989Z",
+  "records": [
+    {
+      "file": "help.png",
+      "command": "steam",
+      "caption": "📖 Steam 帮助",
+      "status": "generated"
+    },
+    {
+      "file": "bindings.png",
+      "command": "steam.绑定列表",
+      "caption": "🔗 Steam 绑定列表",
+      "status": "generated"
+    },
+    {
+      "file": "inventory.png",
+      "command": "steam.库存",
+      "caption": "🎒 Steam 库存",
+      "status": "generated"
+    },
+    {
+      "file": "playtime.png",
+      "command": "steam.游戏时长",
+      "caption": "⏱️ Steam 游戏时长",
+      "status": "generated"
+    },
+    {
+      "file": "recently-played.png",
+      "command": "steam.最近游玩",
+      "caption": "🕹️ Steam 最近游玩",
+      "status": "generated"
+    },
+    {
+      "file": "replay-2025.png",
+      "command": "steam.年度回顾",
+      "caption": "📅 2025 年度回顾",
+      "status": "generated"
+    },
+    {
+      "file": "status.png",
+      "command": "steam.状态",
+      "caption": "👤 Steam 状态",
+      "status": "generated"
+    },
+    {
+      "file": "concurrent.png",
+      "command": "steam.当前热玩",
+      "caption": "🔥 当前热玩排行榜",
+      "status": "generated"
+    },
+    {
+      "file": "daily.png",
+      "command": "steam.每日热玩",
+      "caption": "📈 每日热玩排行榜",
+      "status": "generated"
+    },
+    {
+      "file": "top-new-releases.png",
+      "command": "steam.热门新品",
+      "caption": "🆕 热门新品排行榜",
+      "status": "generated"
+    },
+    {
+      "file": "top-sellers.png",
+      "command": "steam.本周热销",
+      "caption": "🛒 本周热销排行榜",
+      "status": "generated"
+    },
+    {
+      "file": "weekly-top-sellers.png",
+      "command": "steam.上周热销",
+      "caption": "🕘 上周热销排行榜",
+      "status": "generated"
+    },
+    {
+      "file": "best-of-year-2025.png",
+      "command": "steam.年度排行",
+      "caption": "🏆 2025 年度热玩排行",
+      "status": "skipped",
+      "error": "fetch https://store.steampowered.com/charts/bestofyear/bestof2025 failed"
+    },
+    {
+      "file": "storefront.png",
+      "command": "steam.特惠",
+      "caption": "🎁 Steam 商店推荐",
+      "status": "generated"
+    }
+  ]
+}
