@@ -1,5 +1,5 @@
 import type { Context } from 'koishi'
-import {} from 'koishi-plugin-puppeteer'
+import type {} from 'koishi-plugin-puppeteer'
 import type { Config } from '../config'
 import { resolveFontCss } from './font'
 import { allStyles, escapeHtml, layout } from './template-loader'

@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-steam-vincentzyu",
-  "description": "Steam 公开库存、游玩时长、年度回顾与商店排行榜插件。",
-  "version": "0.1.0-beta.1+20260915",
+  "description": "🎮 Steam public game library, playtime, annual recap, and store charts for Koishi. Steam 公开游戏库、游戏时长、年度回顾与商店排行榜插件。🚀",
+  "version": "0.1.0-beta.2+20260915",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "homepage": "https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu",
@@ -28,7 +28,9 @@
     "yakumo:after:build": "yarn copy:render-assets"
   },
   "peerDependencies": {
-    "koishi": "^4.18.7",
+    "koishi": "^4.18.7"
+  },
+  "devDependencies": {
     "koishi-plugin-puppeteer": "^3.9.0"
   },
   "dependencies": {

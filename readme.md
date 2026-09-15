@@ -11,23 +11,52 @@
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu)
 [![Gitee](https://img.shields.io/badge/Gitee-C71D23?style=for-the-badge&logo=gitee&logoColor=white)](https://gitee.com/vincent-zyu/koishi-plugin-steam-vincentzyu)
 [![Koishi Forum](https://img.shields.io/badge/Koishi%20Forum-xxxxx-5546A3?style=for-the-badge)](https://forum.koishi.xyz/t/topic/xxxxx)
-[![QQ群](https://img.shields.io/badge/QQ群-1085190201-12B7F5?style=flat-square&logo=qq&logoColor=white)](https://qm.qq.com/q/ZHj33L5cuC)
 
 Steam 公开库存、游玩时长、年度回顾、状态卡与商店数据查询插件。使用 Puppeteer 渲染紧凑的 Steam 风格图片，支持 SteamID、数字好友码和 Steam 个人主页链接。
 
+🙏 本插件的功能设计与迁移工作参考上游 [yunzai-steam-plugin（GitHub）](https://github.com/XasYer/steam-plugin) 与 [yunzai-steam-plugin（Gitee）](https://gitee.com/xiaoye12123/steam-plugin)。
+
+## 🚨 使用前必读
+
+### 🔑 必须配置 Steam Web API Key
+
+绝大多数功能依赖 Steam Web API Key。未配置 `apiKeys` 时，Steam 通常会返回 `401` 或 `403`，相关功能无法使用；申请时域名可随意填写。
+
+- [Steam Web API 说明](https://partner.steamgames.com/doc/webapi_overview/auth)
+- [申请 Steam Web API Key](https://steamcommunity.com/dev/apikey)
+- [Steam API 条款](https://steamcommunity.com/dev/apiterms)
+
+### 🔌 网络访问
+
+Steam 在部分网络环境下可能连接超时。网络受限时，请配置本插件的代理模式，并在 Koishi 全局启用 `proxy-agent`。
+
 ## 💬 交流反馈
 
-🐛 Bug 反馈、💡 功能建议和 👨‍💻 插件开发交流，欢迎加入 QQ 群：**1085190201**。Koishi Forum 帖子将在创建后替换上方占位链接。
+- 🐛 Bug 反馈
+- 💡 功能建议
+- 👨‍💻 插件开发交流
+- ~~👥 QQ 群：1085190201~~
+- 🏛️ Koishi Forum 帖子将在创建后替换上方占位链接。
 
 ## ⚠️ 依赖与准备
 
-插件需要 Koishi 的以下服务：
+### 🧩 Koishi 服务
+
+插件需要以下 Koishi 服务：
 
 - 💾 `database`：保存每个用户的 Steam 绑定。
 - 🖼️ `puppeteer`：渲染帮助、库存、排行、特惠和状态图片。
 - 🌐 `http`：访问 Steam Web API、Steam Community 和 Steam 商店。
 
-需要 Steam Web API Key 的功能，请至少配置一个 `apiKeys`。启用插件代理前，请在 Koishi 全局启用 `proxy-agent`；本插件只在自己的请求上带代理地址，不会重复注册共享代理插件，因此支持 HMR 热重载。
+### 🔑 Steam Web API Key
+
+需要 Steam Web API Key 的功能，请至少配置一个 `apiKeys`。
+
+### 🔌 插件代理
+
+启用插件代理前，请在 Koishi 全局启用 `proxy-agent`。
+
+本插件只在自己的请求上带代理地址，不会重复注册共享代理插件，因此支持 HMR 热重载。
 
 ## 🚀 快速开始
 
@@ -285,3 +314,5 @@ API Key、代理与数据库凭据仅在运行时读取，不会写入脚本、�
 ## ⚖️ 商标声明
 
 本项目为非官方、免费开源的社区插件，与 Valve Corporation 或 Steam 无关联，亦未获其认可或背书。Steam 是 Valve Corporation 的商标及/或注册商标。本项目不使用 Steam 官方图标作为自身插件标识。
+
+🙏 致谢：感谢上游 [yunzai-steam-plugin（GitHub）](https://github.com/XasYer/steam-plugin) 与 [yunzai-steam-plugin（Gitee）](https://gitee.com/xiaoye12123/steam-plugin) 为本插件提供功能设计与实现参考。

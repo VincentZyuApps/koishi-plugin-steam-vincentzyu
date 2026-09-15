@@ -18,6 +18,7 @@ import { StoreService } from './steam/store'
 export const name = 'steam-vincentzyu'
 export const inject = { required: ['database', 'puppeteer', 'http'] }
 export { Config }
+export { usage } from './usage'
 
 export function apply(ctx: Context, config: SteamConfig) {
   installTables(ctx)
