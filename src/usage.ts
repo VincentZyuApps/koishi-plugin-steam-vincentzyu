@@ -5,7 +5,7 @@ export const usage = `
   <a href="https://www.npmjs.com/package/koishi-plugin-steam-vincentzyu" target="_blank">
     <img src="https://img.shields.io/npm/v/koishi-plugin-steam-vincentzyu?style=flat-square&logo=npm" alt="npm version">
   </a>
-  <a href="https://www.npmjs.com/package/koishi-plugin-steam-vincentzyu" target="_blank">
+  <a href="https://npm-stat.com/charts.html?package=koishi-plugin-steam-vincentzyu" target="_blank">
     <img src="https://img.shields.io/npm/dm/koishi-plugin-steam-vincentzyu?style=flat-square&logo=npm" alt="npm downloads">
   </a>
   <br>

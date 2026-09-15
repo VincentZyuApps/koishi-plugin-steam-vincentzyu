@@ -5,7 +5,7 @@
 # 🎮 koishi-plugin-steam-vincentzyu
 
 [![npm](https://img.shields.io/npm/v/koishi-plugin-steam-vincentzyu?style=flat-square&logo=npm)](https://www.npmjs.com/package/koishi-plugin-steam-vincentzyu)
-[![npm downloads](https://img.shields.io/npm/dm/koishi-plugin-steam-vincentzyu?style=flat-square&logo=npm)](https://www.npmjs.com/package/koishi-plugin-steam-vincentzyu)
+[![npm downloads](https://img.shields.io/npm/dm/koishi-plugin-steam-vincentzyu?style=flat-square&logo=npm)](https://npm-stat.com/charts.html?package=koishi-plugin-steam-vincentzyu)
 [![MIT License](https://img.shields.io/badge/license-MIT-4c7890?style=flat-square)](./LICENSE)
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu)
