@@ -23,8 +23,8 @@
     "plugin"
   ],
   "scripts": {
-    "copy:render-assets": "node scripts/copy-render-assets.mjs",
-    "screenshots:readme": "node -r esbuild-register scripts/images/capture-readme-screenshots.cjs",
+    "copy:render-assets": "node scripts/build/sync-render-assets.mjs",
+    "screenshots:readme": "node -r esbuild-register scripts/docs/capture-readme-screenshots.cjs",
     "yakumo:after:build": "yarn copy:render-assets"
   },
   "peerDependencies": {

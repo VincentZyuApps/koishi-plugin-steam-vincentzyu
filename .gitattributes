@@ -1,5 +1,8 @@
 * text eol=lf
 
+# Include Markdown documentation in GitHub Linguist language statistics.
+*.md linguist-detectable=true
+
 *.png -text
 *.jpg -text
 *.ico -text

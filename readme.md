@@ -1,6 +1,6 @@
 > 💡 推荐前往 [GitHub](https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu) 或 [Gitee](https://gitee.com/vincent-zyu/koishi-plugin-steam-vincentzyu) 阅读 README，体验更好。
 
-![koishi-plugin-steam-vincentzyu](https://socialify.git.ci/VincentZyuApps/koishi-plugin-steam-vincentzyu/image?description=1&font=Jost&forks=1&issues=1&language=1&logo=https%3A%2F%2Fkoishi.js.org%2Flogo.png&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)
+![koishi-plugin-steam-vincentzyu](https://socialify.git.ci/VincentZyuApps/koishi-plugin-steam-vincentzyu/image?custom_description=&description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ff3%2FKoishi.js_Logo.png%3Futm_source%3Dcommons.wikimedia.org%26utm_campaign%3Dindex%26utm_content%3Dthumbnail_unscaled%26_%3D20230331182243&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)
 
 # 🎮 koishi-plugin-steam-vincentzyu
 
