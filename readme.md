@@ -10,7 +10,9 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu)
 [![Gitee](https://img.shields.io/badge/Gitee-C71D23?style=for-the-badge&logo=gitee&logoColor=white)](https://gitee.com/vincent-zyu/koishi-plugin-steam-vincentzyu)
-[![Koishi Forum](https://img.shields.io/badge/Koishi%20Forum-xxxxx-5546A3?style=for-the-badge)](https://forum.koishi.xyz/t/topic/xxxxx)
+
+[![Koishi Forum](https://img.shields.io/badge/Koishi%20Forum-13638-5546A3?style=for-the-badge)](https://forum.koishi.xyz/t/topic/13638)
+[![QQ群](https://img.shields.io/badge/QQ群-1085190201-12B7F5?style=flat-square&logo=qq&logoColor=white)](https://qm.qq.com/q/ZHj33L5cuC)
 
 Steam 公开库存、游玩时长、年度回顾、状态卡与商店数据查询插件。使用 Puppeteer 渲染紧凑的 Steam 风格图片，支持 SteamID、数字好友码和 Steam 个人主页链接。
 
@@ -30,13 +32,11 @@ Steam 公开库存、游玩时长、年度回顾、状态卡与商店数据查�
 
 Steam 在部分网络环境下可能连接超时。网络受限时，请配置本插件的代理模式，并在 Koishi 全局启用 `proxy-agent`。
 
-## 💬 交流反馈
-
-- 🐛 Bug 反馈
-- 💡 功能建议
-- 👨‍💻 插件开发交流
-- ~~👥 QQ 群：1085190201~~
-- 🏛️ Koishi Forum 帖子将在创建后替换上方占位链接。
+<h2>💬 交流反馈</h2>
+<p>🐛 Bug 反馈 / 💡 建议 / 👨‍💻 插件开发交流，欢迎加群：</p>
+<p><del>💬 插件使用问题 / 🐛 Bug反馈 / 👨‍💻 插件开发交流，欢迎加入QQ群：<b>259248174</b>   🎉（这个群G了）</del></p>
+<p>💬 插件使用问题 / 🐛 Bug反馈 / 👨‍💻 插件开发交流，欢迎加入QQ群：<b>1085190201</b> 🎉</p>
+<p>💡 在群里直接艾特我，回复的更快哦~ ✨</p>
 
 ## ⚠️ 依赖与准备
 
