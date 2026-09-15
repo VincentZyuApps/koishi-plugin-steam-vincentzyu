@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-steam-vincentzyu",
   "description": "Steam 公开库存、游玩时长、年度回顾与商店排行榜插件。",
-  "version": "0.0.1",
+  "version": "0.1.0-beta.1+20260915",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "homepage": "https://github.com/VincentZyuApps/koishi-plugin-steam-vincentzyu",

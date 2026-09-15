@@ -30,13 +30,15 @@ export class PlayerService {
     if (!player) throw new Error('🔎 未找到该 Steam 账号的信息。')
     if (player.communityvisibilitystate !== 3) throw new Error(`🔒 ${player.personaname || steamId} 的个人资料未公开。`)
 
-    // Profile decorations are optional: account state remains useful when Steam omits or rejects them.
-    let equipped: EquippedProfileItems = {}
-    try {
-      equipped = await this.api.get<EquippedProfileItems>('IPlayerService/GetProfileItemsEquipped/v1/', { steamid: steamId })
-    } catch {
-      // Fall back to the regular Steam avatar and the card's default background.
-    }
+    // Decorations and level are optional: status remains useful when Steam omits either endpoint.
+    const [equippedResult, levelResult] = await Promise.allSettled([
+      this.api.get<EquippedProfileItems>('IPlayerService/GetProfileItemsEquipped/v1/', { steamid: steamId }),
+      this.api.get<{ player_level?: number }>('IPlayerService/GetSteamLevel/v1/', { steamid: steamId }),
+    ])
+    const equipped = equippedResult.status === 'fulfilled' ? equippedResult.value : {}
+    const level = levelResult.status === 'fulfilled' && Number.isInteger(levelResult.value.player_level)
+      ? levelResult.value.player_level
+      : undefined
     return {
       steamId: player.steamid,
       name: player.personaname || player.steamid,
@@ -46,6 +48,7 @@ export class PlayerService {
       personaState: Number(player.personastate) || 0,
       gameId: player.gameid ? Number(player.gameid) : undefined,
       gameName: player.gameextrainfo,
+      level,
       createdAt: player.timecreated,
       lastLogoff: player.lastlogoff,
       countryCode: player.loccountrycode,

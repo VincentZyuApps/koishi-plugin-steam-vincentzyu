@@ -17,10 +17,10 @@ export class ReplayService {
   }
 
   async bestOfYear(type: string, year: number) {
-    const html = await steamGet<string>(this.ctx, this.config, 'data', `${STORE_BASE}charts/bestofyear/bestof${year}`, { timeout: this.config.timeout * 1000 })
+    const html = await steamGet<string>(this.ctx, this.config, 'data', `${STORE_BASE}charts/bestofyear/bestof${year}`, { timeout: this.config.dataRequestTimeout * 1000 })
     const announcement = /ANNOUNCEMENT_GID&quot;:&quot;(\d+)/.exec(html)?.[1]
     if (!announcement) throw new Error(`🔎 未找到 ${year} 年度最佳页面。`)
-    const event = await steamGet<any>(this.ctx, this.config, 'data', `${STORE_BASE}events/ajaxgetpartnerevent`, { params: { clan_accountid: 39049601, announcement_gid: announcement, lang_list: '6_0', last_modified_time: 0, for_edit: false }, timeout: this.config.timeout * 1000 })
+    const event = await steamGet<any>(this.ctx, this.config, 'data', `${STORE_BASE}events/ajaxgetpartnerevent`, { params: { clan_accountid: 39049601, announcement_gid: announcement, lang_list: '6_0', last_modified_time: 0, for_edit: false }, timeout: this.config.dataRequestTimeout * 1000 })
     const sections = JSON.parse(String(event.event?.jsondata || '').replace(/\\u([\dA-Fa-f]{4})/g, (_all: string, hex: string) => String.fromCharCode(Number.parseInt(hex, 16)))).sale_sections || []
     const labels: Record<string, string> = { 畅销: '畅销', 新品: '新品', VR: 'VR', 抢先体验: '抢先体验', 热玩: '热玩', Deck: 'DECK', 控制器: '控制器' }
     const target = labels[type] || labels.热玩

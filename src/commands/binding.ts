@@ -1,9 +1,13 @@
 import { renderBindings } from '../render/bindings'
 import { handle, imageReply, reply, sessionUid, type CommandServices } from './context'
+import { steamCommands } from '../shared/command-names'
+import { addRenderOptions, commandRenderPolicy } from './render-policy'
 
 export function registerBindingCommands(services: CommandServices) {
   const { ctx, config, bindings, player } = services
-  ctx.command('steam.绑定 <target:text>', '🪪 绑定 SteamID、数字好友码或 Steam 个人主页链接')
+  ctx.command(`${steamCommands.accountBind.command} <target:text>`, '🪪 绑定 SteamID、数字好友码或 Steam 个人主页链接')
+    .alias(steamCommands.accountBind.chinese)
+    .alias(steamCommands.accountBind.english)
     .action(({ session }, target) => {
       if (!target) return reply(config, session, '🪪 请输入 SteamID、数字好友码或 Steam 个人主页链接。')
       return handle(config, session, async () => {
@@ -14,12 +18,19 @@ export function registerBindingCommands(services: CommandServices) {
       }, true)
     })
 
-  ctx.command('steam.绑定列表', '📋 查看已绑定 Steam 账号').action(({ session }) => handle(config, session, async () => {
+  const list = addRenderOptions(ctx.command(steamCommands.accountList.command, '📋 查看已绑定 Steam 账号')
+    .alias(steamCommands.accountList.chinese)
+    .alias(steamCommands.accountList.english))
+  list.action(({ session, options }) => handle(config, session, async () => {
+    const policy = commandRenderPolicy(options)
     const rows = await bindings.list(sessionUid(session))
-    return rows.length ? imageReply(config, renderBindings(ctx, config, rows)) : '📭 尚未绑定 SteamID。'
+    return rows.length ? imageReply(config, renderBindings(ctx, config, rows, policy)) : '📭 尚未绑定 SteamID。'
   }, true))
 
-  ctx.command('steam.切换 <index:number>', '⭐ 切换默认 Steam 账号').action(({ session }, index) => {
+  ctx.command(`${steamCommands.accountSwitch.command} <index:number>`, '⭐ 切换默认 Steam 账号')
+    .alias(steamCommands.accountSwitch.chinese)
+    .alias(steamCommands.accountSwitch.english)
+    .action(({ session }, index) => {
     if (!Number.isInteger(index) || index < 1) return reply(config, session, '🔢 请输入绑定列表中的有效序号。')
     return handle(config, session, async () => {
       const item = await bindings.switch(sessionUid(session), index)
@@ -27,7 +38,10 @@ export function registerBindingCommands(services: CommandServices) {
     })
   })
 
-  ctx.command('steam.解绑 <index:number>', '🔓 解除 Steam 账号绑定').action(({ session }, index) => {
+  ctx.command(`${steamCommands.accountUnbind.command} <index:number>`, '🔓 解除 Steam 账号绑定')
+    .alias(steamCommands.accountUnbind.chinese)
+    .alias(steamCommands.accountUnbind.english)
+    .action(({ session }, index) => {
     if (!Number.isInteger(index) || index < 1) return reply(config, session, '🔢 请输入绑定列表中的有效序号。')
     return handle(config, session, async () => {
       const item = await bindings.remove(sessionUid(session), index)

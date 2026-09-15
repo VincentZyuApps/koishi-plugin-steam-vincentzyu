@@ -24,7 +24,7 @@ export class SteamApiClient {
       try {
         const result = await steamGet<SteamResponse<T>>(this.ctx, this.config, 'data', `${API_BASE}${path}`, {
           params: { key, l: 'schinese', cc: this.config.countryCode, language: 'schinese', ...params },
-          timeout: this.config.timeout * 1000,
+          timeout: this.config.dataRequestTimeout * 1000,
         })
         const value = result.response || (result as T)
         if (this.config.cacheSeconds) this.cache.set(cacheKey, { value, expires: Date.now() + this.config.cacheSeconds * 1000 })

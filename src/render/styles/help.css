@@ -3,9 +3,56 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.help-sheet {
+  padding: 20px;
+}
+
+.help-sheet header {
+  padding: 15px 18px 14px;
+}
+
+.help-sheet .section,
+.help-guide {
+  margin-top: 10px;
+}
+
+.help-sheet .section-title {
+  padding: 8px 12px;
+}
+
+.help-guide {
+  border: 1px solid var(--line-strong);
+  background: var(--panel-strong);
+}
+
+.guide-title {
+  padding: 8px 12px;
+  color: #b9e4ff;
+  border-bottom: 1px solid var(--line-strong);
+  background: #1d3746;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.guide-example {
+  padding: 10px 12px 6px;
+}
+
+.help-guide p {
+  margin: 0;
+  padding: 0 12px 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.help-guide p code {
+  color: #d9e9f2;
+}
+
 .help-item {
-  min-height: 105px;
-  padding: 16px 18px;
+  min-height: 150px;
+  padding: 12px 14px;
   border-top: 1px solid #3d5867;
   border-right: 1px solid #3d5867;
 }
@@ -21,14 +68,48 @@
 
 .command {
   color: #70c6f5;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   overflow-wrap: anywhere;
 }
 
-.description {
+.aliases {
+  display: grid;
+  gap: 3px;
   margin-top: 6px;
+}
+
+.alias {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.alias span {
+  flex: 0 0 58px;
+  color: #7f9dac;
+}
+
+.alias code {
+  min-width: 0;
+  font-family: inherit;
+  overflow-wrap: anywhere;
+}
+
+.alias-chinese code {
+  color: #a8c6d5;
+}
+
+.alias-english code {
+  color: #8ed5cb;
+}
+
+.description {
+  margin-top: 8px;
   color: #c5d5df;
-  font-size: 17px;
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 1.42;
 }

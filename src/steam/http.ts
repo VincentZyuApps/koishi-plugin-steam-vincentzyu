@@ -49,17 +49,17 @@ function imageMime(contentType: string | null, url: string) {
   return 'image/jpeg'
 }
 
-export async function fetchSteamImage(ctx: Context, config: Config, url: string): Promise<SteamImage> {
+export async function fetchSteamImage(ctx: Context, config: Config, url: string, timeoutMs = config.imageLoadTimeout * 1000): Promise<SteamImage> {
   const response = await steamRequest<ArrayBuffer>(ctx, config, 'images', url, {
     responseType: 'arraybuffer',
-    timeout: config.timeout * 1000,
+    timeout: timeoutMs,
   })
   const data = Buffer.from(response.data)
   if (data.byteLength > MAX_IMAGE_BYTES) throw new Error('🖼️ Steam 图片文件过大，已跳过内嵌。')
   return { data, mime: imageMime(response.headers.get('content-type'), url) }
 }
 
-export async function imageDataUrl(ctx: Context, config: Config, url: string) {
-  const image = await fetchSteamImage(ctx, config, url)
+export async function imageDataUrl(ctx: Context, config: Config, url: string, timeoutMs?: number) {
+  const image = await fetchSteamImage(ctx, config, url, timeoutMs)
   return `data:${image.mime};base64,${image.data.toString('base64')}`
 }

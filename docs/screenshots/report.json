@@ -1,79 +1,348 @@
 {
   "uid": "onebot:1830540513",
   "year": 2025,
-  "generatedAt": "2026-09-14T14:23:47.989Z",
+  "generatedAt": "2026-09-14T17:38:12.738Z",
   "records": [
     {
       "file": "help.png",
       "command": "steam",
       "caption": "📖 Steam 帮助",
-      "status": "generated"
+      "status": "generated",
+      "diagnostics": {
+        "assets": {
+          "requested": 0,
+          "loaded": 0,
+          "failures": []
+        },
+        "dom": {
+          "requested": 0,
+          "loaded": 0,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 6770
+      },
+      "bestAttempt": 1,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam"
     },
     {
       "file": "bindings.png",
-      "command": "steam.绑定列表",
-      "caption": "🔗 Steam 绑定列表",
-      "status": "generated"
+      "command": "steam.账号.列表",
+      "caption": "🔗 Steam 账号列表",
+      "status": "generated",
+      "diagnostics": {
+        "assets": {
+          "requested": 0,
+          "loaded": 0,
+          "failures": []
+        },
+        "dom": {
+          "requested": 0,
+          "loaded": 0,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 3459
+      },
+      "bestAttempt": 1,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.账号.列表"
     },
     {
       "file": "inventory.png",
       "command": "steam.库存",
       "caption": "🎒 Steam 库存",
-      "status": "generated"
-    },
-    {
-      "file": "playtime.png",
-      "command": "steam.游戏时长",
-      "caption": "⏱️ Steam 游戏时长",
-      "status": "generated"
+      "status": "degraded",
+      "diagnostics": {
+        "assets": {
+          "requested": 42,
+          "loaded": 40,
+          "failures": [
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3715730/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            }
+          ]
+        },
+        "dom": {
+          "requested": 40,
+          "loaded": 40,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 6524
+      },
+      "bestAttempt": 2,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.库存"
     },
     {
       "file": "recently-played.png",
       "command": "steam.最近游玩",
       "caption": "🕹️ Steam 最近游玩",
-      "status": "generated"
+      "status": "generated",
+      "diagnostics": {
+        "assets": {
+          "requested": 7,
+          "loaded": 7,
+          "failures": []
+        },
+        "dom": {
+          "requested": 7,
+          "loaded": 7,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 4001
+      },
+      "bestAttempt": 1,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.最近游玩"
     },
     {
       "file": "replay-2025.png",
       "command": "steam.年度回顾",
       "caption": "📅 2025 年度回顾",
-      "status": "generated"
+      "status": "generated",
+      "diagnostics": {
+        "assets": {
+          "requested": 0,
+          "loaded": 0,
+          "failures": []
+        },
+        "dom": {
+          "requested": 0,
+          "loaded": 0,
+          "failed": 0
+        },
+        "durationMs": 0
+      },
+      "bestAttempt": 3,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.年度回顾"
     },
     {
       "file": "status.png",
       "command": "steam.状态",
       "caption": "👤 Steam 状态",
-      "status": "generated"
+      "status": "generated",
+      "diagnostics": {
+        "assets": {
+          "requested": 3,
+          "loaded": 3,
+          "failures": []
+        },
+        "dom": {
+          "requested": 3,
+          "loaded": 3,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 3607
+      },
+      "bestAttempt": 1,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-51-58-961\\steam.状态"
     },
     {
       "file": "concurrent.png",
       "command": "steam.当前热玩",
       "caption": "🔥 当前热玩排行榜",
-      "status": "generated"
+      "status": "degraded",
+      "diagnostics": {
+        "assets": {
+          "requested": 20,
+          "loaded": 17,
+          "failures": [
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2676230/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3678970/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1867240/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            }
+          ]
+        },
+        "dom": {
+          "requested": 17,
+          "loaded": 17,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 6057
+      },
+      "bestAttempt": 2,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.当前热玩"
     },
     {
       "file": "daily.png",
       "command": "steam.每日热玩",
       "caption": "📈 每日热玩排行榜",
-      "status": "generated"
+      "status": "degraded",
+      "diagnostics": {
+        "assets": {
+          "requested": 20,
+          "loaded": 17,
+          "failures": [
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1867240/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2676230/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3405690/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            }
+          ]
+        },
+        "dom": {
+          "requested": 17,
+          "loaded": 17,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 5403
+      },
+      "bestAttempt": 2,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.每日热玩"
     },
     {
       "file": "top-new-releases.png",
       "command": "steam.热门新品",
       "caption": "🆕 热门新品排行榜",
-      "status": "generated"
+      "status": "generated",
+      "diagnostics": {
+        "assets": {
+          "requested": 20,
+          "loaded": 20,
+          "failures": []
+        },
+        "dom": {
+          "requested": 20,
+          "loaded": 20,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 4984
+      },
+      "bestAttempt": 2,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.热门新品"
     },
     {
       "file": "top-sellers.png",
       "command": "steam.本周热销",
       "caption": "🛒 本周热销排行榜",
-      "status": "generated"
+      "status": "stale",
+      "error": "request timeout"
     },
     {
       "file": "weekly-top-sellers.png",
       "command": "steam.上周热销",
       "caption": "🕘 上周热销排行榜",
-      "status": "generated"
+      "status": "degraded",
+      "diagnostics": {
+        "assets": {
+          "requested": 20,
+          "loaded": 13,
+          "failures": [
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4356430/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4001890/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4115450/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4656000/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1867240/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2483190/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            },
+            {
+              "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3751260/header.jpg",
+              "attempts": 3,
+              "error": "Not Found"
+            }
+          ]
+        },
+        "dom": {
+          "requested": 13,
+          "loaded": 13,
+          "failed": 0
+        },
+        "policy": {
+          "imageRetries": 2,
+          "imageTimeoutMs": 20000,
+          "settleMs": 2222
+        },
+        "durationMs": 5477
+      },
+      "bestAttempt": 1,
+      "candidateDirectory": "G:\\GGames\\Minecraft\\shuyeyun\\qq-bot\\koishi-dev\\koishi-dev-8\\external\\steam-vincentzyu\\temp\\output\\2026-09-14_17-32-06-315\\steam.上周热销"
     },
     {
       "file": "best-of-year-2025.png",
@@ -86,7 +355,8 @@
       "file": "storefront.png",
       "command": "steam.特惠",
       "caption": "🎁 Steam 商店推荐",
-      "status": "generated"
+      "status": "stale",
+      "error": "fetch https://store.steampowered.com/api/featuredcategories?cc=CN&l=schinese failed"
     }
   ]
 }

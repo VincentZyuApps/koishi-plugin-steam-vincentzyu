@@ -28,7 +28,7 @@ export type ProxyProtocol = typeof PROXY_PROTOCOL[keyof typeof PROXY_PROTOCOL]
 export interface Config {
   apiKeys: string[]
   countryCode: string
-  timeout: number
+  dataRequestTimeout: number
   cacheSeconds: number
   proxyMode: ProxyMode
   proxy: {
@@ -45,6 +45,9 @@ export interface Config {
   storefrontTopSellersLimit: number
   storefrontNewReleasesLimit: number
   imageWidth: number
+  deviceScaleFactor: number
+  imageLoadTimeout: number
+  renderSettleMs: number
   imageType: 'png' | 'jpeg' | 'webp'
   screenshotQuality: number
   fontMode: FontMode
@@ -58,7 +61,7 @@ export const Config: Schema<Config> = Schema.intersect([
       .default([])
       .description('🔑 Steam Web API Key 列表。请求会轮询负载均衡，收到 429 时临时避开对应 Key。'),
     countryCode: Schema.string().default('CN').description('🌍 商店地区代码，例如 CN、US、HK。'),
-    timeout: Schema.number().min(3).max(60).step(1).default(15).description('⏱️ Steam API 请求超时（秒）。'),
+    dataRequestTimeout: Schema.number().min(3).max(60).step(1).default(15).description('⏱️ Steam 数据请求超时（秒），用于 Steam API、商店和 Replay 页面。'),
     cacheSeconds: Schema.number().min(0).max(3600).step(10).default(120).description('💾 Steam 公共数据的进程内缓存时长（秒）。'),
   }).description('🎮 Steam 数据'),
   Schema.object({
@@ -90,7 +93,12 @@ export const Config: Schema<Config> = Schema.intersect([
     storefrontComingSoonLimit: Schema.number().min(0).max(100).step(1).default(10).description('📅 特惠图“即将推出”分区最多展示条数，0 表示完整展示。'),
     storefrontTopSellersLimit: Schema.number().min(0).max(100).step(1).default(10).description('🔥 特惠图“热销”分区最多展示条数，0 表示完整展示。'),
     storefrontNewReleasesLimit: Schema.number().min(0).max(100).step(1).default(10).description('🆕 特惠图“新品”分区最多展示条数，0 表示完整展示。'),
+  }).description('📊 出图条目限制'),
+  Schema.object({
     imageWidth: Schema.number().min(640).max(1600).step(20).default(900).description('↔️ Puppeteer 卡片图宽度（px）。'),
+    deviceScaleFactor: Schema.number().role('slider').min(0.5).max(5).step(0.1).default(2.5).description('🔎 Puppeteer 设备像素比。最终图片像素为布局宽高乘以此值；数值越高越清晰，但图片体积、内存和渲染时间也会增加。'),
+    imageLoadTimeout: Schema.number().min(1).max(30).step(1).default(20).description('🖼️ 图片预下载与浏览器解码超时（秒）。可由出图指令的 --image-timeout 临时覆盖。'),
+    renderSettleMs: Schema.number().min(0).max(10_000).step(1).default(2222).description('⏳ 图片完成后的渲染稳定等待（毫秒）。可由出图指令的 --settle-ms 临时覆盖。'),
     imageType: Schema.union([
       Schema.const('png'),
       Schema.const('jpeg'),

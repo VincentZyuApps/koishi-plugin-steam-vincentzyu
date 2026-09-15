@@ -14,7 +14,7 @@ export class StoreService {
   async featuredCategories(): Promise<StorefrontSection[]> {
     const data = await steamGet<Record<string, { items?: any[] }>>(this.ctx, this.config, 'data', 'https://store.steampowered.com/api/featuredcategories', {
       params: { cc: this.config.countryCode, l: 'schinese' },
-      timeout: this.config.timeout * 1000,
+      timeout: this.config.dataRequestTimeout * 1000,
     })
     const sections: Array<Pick<StorefrontSection, 'key' | 'title'>> = [
       { key: 'specials', title: '🏷️ 优惠' },

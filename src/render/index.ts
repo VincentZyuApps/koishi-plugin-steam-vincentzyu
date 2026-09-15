@@ -3,6 +3,21 @@ import {} from 'koishi-plugin-puppeteer'
 import type { Config } from '../config'
 import { resolveFontCss } from './font'
 import { allStyles, escapeHtml, layout } from './template-loader'
+import { resolveConfigRenderPolicy, type RenderPolicy } from './policy'
+import type { ImageLoadSummary } from './views'
+
+export interface RenderDiagnostics {
+  assets: ImageLoadSummary
+  dom: {
+    requested: number
+    loaded: number
+    failed: number
+  }
+  policy: RenderPolicy
+  durationMs: number
+}
+
+type DiagnosedBuffer = Buffer & { renderDiagnostics?: RenderDiagnostics }
 
 export interface RenderPageOptions {
   title: string
@@ -10,9 +25,15 @@ export interface RenderPageOptions {
   content: string
   fontText: string
   source: string
+  pageClass?: string
+  widthOffset?: number
+  assetSummary?: ImageLoadSummary
+  renderPolicy?: Partial<RenderPolicy>
 }
 
 export async function renderPage(ctx: Context, config: Config, options: RenderPageOptions) {
+  const startedAt = Date.now()
+  const policy = resolveConfigRenderPolicy(config, options.renderPolicy)
   const page = await ctx.puppeteer.page()
   try {
     const html = layout({
@@ -27,23 +48,60 @@ export async function renderPage(ctx: Context, config: Config, options: RenderPa
         `生成于 ${formatGeneratedAt()} (UTC+8)`,
         '非官方，未获 Valve/Steam 认可',
       ].map(escapeHtml).map(value => `<span>${value}</span>`).join(''),
+      PAGE_CLASS: options.pageClass || '',
     })
-    await page.setViewport({ width: config.imageWidth, height: 900, deviceScaleFactor: 1 })
+    const width = Math.min(1600, Math.max(640, config.imageWidth + (options.widthOffset || 0)))
+    await page.setViewport({ width, height: 900, deviceScaleFactor: config.deviceScaleFactor })
     await page.setContent(html)
-    await page.evaluate(async () => {
+    const dom = await page.evaluate(async (timeoutMs, settleMs) => {
       await (document as any).fonts?.ready
-      await Promise.all(Array.from(document.images).map((node) => node.complete ? Promise.resolve() : new Promise(resolve => {
-        node.addEventListener('load', resolve, { once: true })
-        node.addEventListener('error', resolve, { once: true })
-      })))
-    }).catch(() => undefined)
+      const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+      const loaded = await Promise.all(Array.from(document.images).map(async node => {
+        if (!node.complete) {
+          await Promise.race([
+            new Promise(resolve => {
+              node.addEventListener('load', resolve, { once: true })
+              node.addEventListener('error', resolve, { once: true })
+            }),
+            wait(timeoutMs),
+          ])
+        }
+        if (!node.complete || node.naturalWidth <= 0) return false
+        try {
+          await node.decode()
+        } catch {
+          return false
+        }
+        return node.naturalWidth > 0
+      }))
+      if (settleMs) await wait(settleMs)
+      return {
+        requested: loaded.length,
+        loaded: loaded.filter(Boolean).length,
+        failed: loaded.filter(value => !value).length,
+      }
+    }, policy.imageTimeoutMs, policy.settleMs).catch(() => ({ requested: 0, loaded: 0, failed: 0 }))
     const sheet = await page.$('.sheet')
     if (!sheet) throw new Error('🖼️ 渲染页面缺少 .sheet 根容器。')
     const result = await sheet.screenshot({ type: config.imageType, ...(config.imageType === 'png' ? {} : { quality: config.screenshotQuality }) } as any)
-    return Buffer.isBuffer(result) ? result : Buffer.from(result, 'base64')
+    const buffer: DiagnosedBuffer = Buffer.isBuffer(result) ? result : Buffer.from(result, 'base64')
+    Object.defineProperty(buffer, 'renderDiagnostics', {
+      value: {
+        assets: options.assetSummary || { requested: 0, loaded: 0, failures: [] },
+        dom,
+        policy,
+        durationMs: Date.now() - startedAt,
+      } satisfies RenderDiagnostics,
+      enumerable: false,
+    })
+    return buffer
   } finally {
     await page.close().catch(() => undefined)
   }
+}
+
+export function getRenderDiagnostics(buffer: Buffer): RenderDiagnostics | undefined {
+  return (buffer as DiagnosedBuffer).renderDiagnostics
 }
 
 function formatGeneratedAt() {

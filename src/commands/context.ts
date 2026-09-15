@@ -61,7 +61,7 @@ async function dismissWaitingHint(session: any, messageId?: string) {
 export async function targetSteamId(services: CommandServices, session: any, target?: string) {
   if (target?.trim()) return services.player.resolveSteamId(target)
   const primary = await services.bindings.primary(sessionUid(session))
-  if (!primary) throw new Error('🔗 尚未绑定 SteamID。请先使用 steam.绑定 <SteamID>，或在命令后直接传入公开 SteamID。')
+  if (!primary) throw new Error('🔗 尚未绑定 SteamID。请先使用 steam.账号.绑定 <SteamID>，或在命令后直接传入公开 SteamID。')
   return primary.steamId
 }
 

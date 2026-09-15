@@ -37,6 +37,7 @@ export interface SteamStatusProfile {
   personaState: number
   gameId?: number
   gameName?: string
+  level?: number
   createdAt?: number
   lastLogoff?: number
   countryCode?: string
